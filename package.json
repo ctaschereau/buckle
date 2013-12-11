@@ -1,0 +1,11 @@
+{
+	"name": "buckles",
+	"version": "0.0.2",
+	"dependencies": {
+		"pg": "latest",
+		"imagemagick": "latest",
+		"express": "latest",
+		"underscore": "latest",
+		"mime": "latest"
+	}
+}

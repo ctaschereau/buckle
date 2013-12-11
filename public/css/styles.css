@@ -1,0 +1,58 @@
+h1:first-letter, h2:first-letter{
+	text-transform: uppercase;
+}
+h1, h2 {
+	color: #424242;
+	font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+	letter-spacing:0.1em;
+	margin: 40px auto;
+	text-transform: lowercase;
+	font-variant: small-caps;
+	margin: 0 0 15px 0;
+}
+h1 {
+	font-size: 18pt;
+}
+h2 {
+	font-size: 14pt;
+}
+
+body {
+	background-color: #dddddd;
+}
+
+.floatable {
+	float:left;
+	margin: 3px;
+}
+
+.polaroid {
+	position: relative;
+}
+ 
+.polaroid img {
+	border: 10px solid #fff;
+	border-bottom: 45px solid #fff;
+	-webkit-box-shadow: 3px 3px 3px #777;
+	-moz-box-shadow: 3px 3px 3px #777;
+	box-shadow: 3px 3px 3px #777;
+}
+ 
+.polaroid p {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	bottom: 0px;
+	font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+	font-size: 10pt;
+}
+
+.clearer {
+	clear: both;
+}
+
+.summary {
+	border-style: double;
+	background-color: #DCDCED;
+	width: 150px;
+}

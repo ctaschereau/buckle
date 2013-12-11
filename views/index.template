@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+	<title><%= title %></title>
+</head>
+<body>
+	<h1><%= title %></h1>
+	<h2><%= subtitle %></h2>
+	
+	<% _.each(items,function(item,key,list){ %>
+	
+	<div class="polaroid floatable">
+		<p><%= item.buckle_name %></p>
+		<!-- <p><%= item.notes %></p> -->
+		<img src="getImage/<%= item.buckle_image_ids[0] %>/1/<%= item.image_filenames[0] %>" height="150" onclick="window.location='getImage/<%= item.buckle_image_ids[0] %>/0/<%= item.image_filenames[0] %>';"/>
+	</div>
+	
+	<% }); %>
+	
+	<div class="clearer">&nbsp;</div>
+	<div class="summary">
+		Total buckles : <%= _.size(items) %><br />
+		<a href='/todo'>TODO list</a>
+	</div>
+</body>
+</html>
