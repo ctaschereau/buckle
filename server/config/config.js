@@ -1,6 +1,6 @@
 module.exports = function(app, express){
 	app.configure(function() {
-		app.use(express.bodyParser());
+//		app.use(express.bodyParser());
 		app.use('/images', express.static(root_dir + '/public/images'));
 		app.use('/css', express.static(root_dir + '/public/css'));
 		app.use('/execs', express.static(root_dir + '/public/execs'));

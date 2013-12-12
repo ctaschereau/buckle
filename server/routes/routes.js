@@ -25,9 +25,10 @@ module.exports = function(app, db){
 		var is_thumbnail = request.params.is_thumbnail;
 		var image_name = request.params.image_name;
 		
-		fs.readFile(root_dir + '/public/images/' + image_name, function (err, data) {
+		fs.readFile(root_dir + '/upload/' + image_name, function (err, data) {
 			if(err)
 			{
+				//console.log('Request for ' + (is_thumbnail == '1' ? 'thumbnail ' : 'image ') + image_name + ' threw error : ' + err.message);
 				fs.readFile(root_dir + '/public/images/noImage.jpg', function (err, data) {
 					if (err) throw err;
 					response.writeHead(200, {"Content-Type": 'image/jpg'});
@@ -37,7 +38,7 @@ module.exports = function(app, db){
 			}
 			else
 			{
-				//console.log('Going to serve request for ' + (is_thumbnail == '1' ? 'thumbnail ' : 'image ') + resultRows[0]['filename']);
+				//console.log('Going to serve request for ' + (is_thumbnail == '1' ? 'thumbnail ' : 'image ') + image_name);
 				response.writeHead(200, {"Content-Type": 'image/jpeg'});
 				response.write(data);
 				response.end();
