@@ -6,6 +6,7 @@
 		"imagemagick": "latest",
 		"express": "latest",
 		"underscore": "latest",
-		"mime": "latest"
+		"mime": "latest",
+		"multiparty": "latest"
 	}
 }
