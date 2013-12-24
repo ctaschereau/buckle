@@ -25,12 +25,10 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-/*
 app.use(function(err, req, res, next){
   console.error(err.stack);
   res.send(500, 'Something broke!');
 });
-*/
 
 app.get('/', routes.index);
 app.get('/getImage/:image_id/:is_thumbnail/:image_name', routes.getImage);
