@@ -19,11 +19,10 @@
 	</div>
 	
 	<% }); %>
-	
 	<div class="clearer">&nbsp;</div>
 	<div class="summary">
 		Total buckles : <%= _.size(items) %><br />
-		<a href='/todo'>TODO list</a>
+		<!--<a href='/todo'>TODO list</a>-->
 	</div>
 </body>
 </html>

@@ -1,5 +1,10 @@
 var pg = require('pg');
 
+if(!process.env.DATABASE_URL)
+{
+	process.env.DATABASE_URL = "postgres://postgres:my_password@localhost:5432/buckles";
+}
+
 exports.getBucklesData = function (callback)
 {
 	var items = [];
