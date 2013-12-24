@@ -20,6 +20,7 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -29,11 +30,16 @@ app.use(function(err, req, res, next){
   console.error(err.stack);
   res.send(500, 'Something broke!');
 });
+*/
 
 app.get('/', routes.index);
 app.get('/getImage/:image_id/:is_thumbnail/:image_name', routes.getImage);
 app.get('/addBuckle', dev_routes.addBuckleForm);
 app.post('/addBuckle', dev_routes.addBuckle);
+
+process.on('uncaughtException', function(err) {
+	console.log('Caught exception: ' + JSON.stringify(err));
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
