@@ -20,7 +20,13 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-/*
+
+app.get('/', routes.index);
+app.get('/getImage/:image_id/:is_thumbnail/:image_name', routes.getImage);
+app.get('/addBuckle', dev_routes.addBuckleForm);
+app.post('/addBuckle', dev_routes.addBuckle);
+
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -29,18 +35,6 @@ if ('development' == app.get('env')) {
 app.use(function(err, req, res, next){
   console.error(err.stack);
   res.send(500, 'Something broke!');
-});
-*/
-
-app.get('/', routes.index);
-app.get('/getImage/:image_id/:is_thumbnail/:image_name', routes.getImage);
-app.get('/addBuckle', dev_routes.addBuckleForm);
-app.post('/addBuckle', dev_routes.addBuckle);
-
-process.on('uncaughtException', function(err) {
-	console.error((new Date).toUTCString() + ' uncaughtException:', err.message)
-	console.error(err.stack)
-	process.exit(1)
 });
 
 http.createServer(app).listen(app.get('port'), function(){

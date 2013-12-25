@@ -1,9 +1,13 @@
 var pg = require('pg');
+var log4js = require('log4js');
+var logger = log4js.getLogger('db');
 
 if(!process.env.DATABASE_URL)
 {
 	process.env.DATABASE_URL = "postgres://postgres:my_password@localhost:5432/buckles";
 }
+
+// TODO : Add better error handling everywhere here !
 
 exports.getBucklesData = function (callback)
 {
@@ -16,7 +20,7 @@ exports.getBucklesData = function (callback)
 						'JOIN buckle_image USING(buckle_id) ' + 
 						'GROUP BY buckle_name, notes, date_acquired ' + 
 						'ORDER BY date_acquired, buckle_name';
-		console.log(sqlQuery);
+		logger.debug('Query : ' + sqlQuery);
 		client.query(sqlQuery, function(err, result) {
 			result.rows.forEach(function(item) {
 				items.push(item);

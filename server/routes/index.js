@@ -2,6 +2,8 @@ var fs = require('fs');
 var _ = require('underscore');
 var db = require('../db/db');
 var imageUtils = require('../imageUtils');
+var log4js = require('log4js');
+var logger = log4js.getLogger('index');
 
 /*
  * GET home page.
@@ -33,7 +35,7 @@ exports.getImage = function(req, res) {
 		res.end();
 	};
 	
-	//console.log('Going to serve request for ' + (is_thumbnail ? 'thumbnail ' : 'image ') + (is_thumbnail ? thumbnailPath : imagePath));
+	//logger.trace('Going to serve request for ' + (is_thumbnail ? 'thumbnail ' : 'image ') + (is_thumbnail ? thumbnailPath : imagePath));
 	
 	fs.stat((is_thumbnail ? thumbnailPath : imagePath), function(err, stat) {
 		// if the file does not exist
