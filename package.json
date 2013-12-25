@@ -9,6 +9,7 @@
 		"mime": "latest",
 		"multiparty": "latest",
 		"async": "latest",
-		"log4js": "latest"
+		"log4js": "latest",
+		"fs-extra": "latest"
 	}
 }

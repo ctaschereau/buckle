@@ -5,6 +5,7 @@ var routes = require('./server/routes');
 var dev_routes = require('./server/routes/dev_routes');
 var http = require('http');
 var path = require('path');
+var fs = require('fs-extra');
 
 var app = express();
 
@@ -36,6 +37,9 @@ app.use(function(err, req, res, next){
   console.error(err.stack);
   res.send(500, 'Something broke!');
 });
+
+// Ensure required folder are present
+fs.mkdirsSync(root_dir + '/upload/thumbnails/');
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

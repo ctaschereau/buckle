@@ -10,14 +10,6 @@ var log4js = require('log4js');
 var logger = log4js.getLogger('dev_routes');
 
 
-
-
-
-
-
-
-
-
 exports.addBuckleForm = function(req, res){
 	fs.readFile(root_dir + '/views/admin.template', 'utf8', function(err, templateContent) {
 		if(err) throw err;
@@ -31,11 +23,9 @@ exports.addBuckle = function(request, response) {
 	
 	var newBuckleInfo = {};
 	var imagePath, thumbnailPath;
-	//var form = new multiparty.Form();
 
 	async.waterfall([
 		function(callback) {
-			//form.parse(request, callback);
 			
 			var infiles = 0, outfiles = 0, done = false,
 				busboy = new Busboy({ headers: request.headers });
